@@ -56,11 +56,11 @@ export default function Dashboard() {
     setLoadingId(null)
     qc.invalidateQueries(['leads'])
   }
-
+ 
   const hot    = leads.filter(l => l.score?.priority === 'hot').length
   const scored = leads.filter(l => l.score).length
   const avg    = scored ? Math.round(leads.filter(l => l.score).reduce((a, l) => a + l.score.total_score, 0) / scored) : 0
-
+ 
   return (
     <div style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem' }}>
 
@@ -76,7 +76,7 @@ export default function Dashboard() {
           <button className="btn btn-primary" onClick={() => setTab(tab === 'add' ? 'leads' : 'add')}><Plus size={14}/> Add Lead</button>
         </div>
       </div>
-
+ 
       {/* KPI Cards */}
       <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:12, marginBottom:'1.5rem' }}>
         {[
