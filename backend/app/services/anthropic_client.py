@@ -20,7 +20,7 @@ def _get_client() -> anthropic.AsyncAnthropic:
             "ANTHROPIC_API_KEY is missing or still set to the placeholder. Update backend/.env with a valid Claude API key."
         )
     return anthropic.AsyncAnthropic(api_key=api_key)
-
+ 
 
 def _extract_text(response) -> str:
     text = ""
@@ -29,7 +29,7 @@ def _extract_text(response) -> str:
             text = block.text
     return text
 
-
+ 
 def _clean_result(result: dict) -> dict:
     for key in ["note", "warning", "disclaimer"]:
         result.pop(key, None)
